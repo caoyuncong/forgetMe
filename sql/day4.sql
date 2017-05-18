@@ -1,0 +1,72 @@
+SHOW FULL COLUMNS FROM db_1702.test;
+
+SELECT *
+FROM db_1702.test;
+
+INSERT INTO db_1702.test
+VALUES (NULL, 'I');
+
+INSERT INTO db_1702.test (col)
+VALUES ('N1'), ('N2');
+
+SHOW CREATE TABLE db_1702.test; -- 显示建表语句
+SELECT *
+FROM db_1702.test;
+
+ALTER TABLE db_1702.test
+  MODIFY col VARCHAR(255) NOT NULL;
+
+UPDATE db_1702.test
+SET col = 'you'
+WHERE id = 1;
+
+DELETE FROM db_1702.test
+WHERE col = 'n1';
+
+DELETE FROM db_1702.test
+WHERE id  BETWEEN 1 AND 3;
+
+ALTER TABLE db_1702.test MODIFY id INT NULL;
+ALTER TABLE db_1702.test DROP PRIMARY KEY;
+
+ALTER TABLE db_1702.test MODIFY COLUMN id VARCHAR(255) NOT NULL DEFAULT '女';
+SHOW FULL COLUMNS FROM db_1702.test;
+
+-- binary 大小写不敏感 --------------
+DELETE FROM db_1702.student
+WHERE name = BINARY '';
+
+SELECT *
+FROM db_1702.student;
+
+DELETE FROM db_1702.student
+WHERE dob IS NULL ;
+
+DROP TABLE IF EXISTS db_1702.case_test;
+CREATE TABLE db_1702.case_test (
+  col VARCHAR(255)
+) COLLATE =utf8_bin ; -- binary
+
+INSERT INTO db_1702.case_test VALUES ('test') ;
+
+
+-- DQL --------------------
+SHOW DATABASES ;
+SHOW TABLE STATUS FROM db_1702;
+
+SHOW TABLE STATUS FROM db_1702
+WHERE name = 'student';
+
+SHOW FULL COLUMNS FROM db_1702.student;
+
+SHOW FULL TABLES FROM db_1702;
+
+SHOW VARIABLES ;
+
+SHOW CREATE TABLE db_1702.student;
+
+SHOW DATABASES ;
+
+-- scott ------
+SELECT *
+FROM scott;
