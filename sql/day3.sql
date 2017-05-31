@@ -159,3 +159,6 @@ ALTER TABLE db_1702.student_course
 ALTER TABLE db_1702.student_course
   ENABLE KEYS;
 
+SELECT *
+FROM db_1702.student_course;
+

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ECharts map Demo</title>
+    <script src="echarts.js"></script>
+    <script src="china.json"></script>
+</head>
+<body>
+<div id="map-wrap" style="height: 500px"> <!-- 这里以后是地图 -->
+
+</div>
+<script type="text/javascript">
+    $.get('', function (chinaJson) {
+        echarts.registerMap('china', chinaJson); // 注册地图
+    })
+    // 初始化echarts示例mapChart
+    var mapChart = echarts.init(document.getElementById('map-wrap'));
+    var option = {
+        geo: {
+            map: 'china'
+        }
+    };
+    mapChart.setOption(option);
+</script>
+</body>
+</html>
